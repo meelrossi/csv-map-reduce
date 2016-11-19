@@ -12,11 +12,11 @@ import org.supercsv.io.CsvBeanReader;
 import org.supercsv.io.ICsvBeanReader;
 import org.supercsv.prefs.CsvPreference;
 
-import api.Census;
+import api.model.Census;
 
 public class CensusReader {
 
-	private static final String FILENAME = "files/dataset-1000.csv";
+	private static final String FILENAME = "./files/dataset-1000.csv";
 
 	private static CellProcessor[] getProcessors() {
 		return new CellProcessor[] {
@@ -54,9 +54,7 @@ public class CensusReader {
 			Census aV;
 			beanReader.getHeader(true);
 			while ((aV = beanReader.read(Census.class, header, processors)) != null) {
-				System.out.println(String.format("lineNo=%s, rowNo=%s, customer=%s", beanReader.getLineNumber(),
-						beanReader.getRowNumber(), aV));
-				theIMap.put(aV.getHouseId().toString(), aV);
+				theIMap.put(aV.getHouseId().toString() + aV.getAge(), aV);
 			}
 		} finally {
 			if (beanReader != null) {
