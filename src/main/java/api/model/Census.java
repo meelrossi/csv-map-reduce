@@ -9,22 +9,16 @@ import com.hazelcast.nio.serialization.DataSerializable;
 public class Census implements DataSerializable {
 
 	private Integer houseType;
-	private Integer serviceQuality;
-	private Integer gender;
 	private Integer age;
 	private Integer literacy;
-	private Integer activity;
 	private String countyName;
 	private String stateName;
 	private Integer houseId;
 
 	public void readData(final ObjectDataInput census) throws IOException {
 		houseType = census.readInt();
-		serviceQuality = census.readInt();
-		gender = census.readInt();
 		age = census.readInt();
 		literacy = census.readInt();
-		activity = census.readInt();
 		countyName = census.readUTF();
 		stateName = census.readUTF();
 		houseId = census.readInt();
@@ -32,11 +26,8 @@ public class Census implements DataSerializable {
 
 	public void writeData(ObjectDataOutput census) throws IOException {
 		census.writeInt(houseType);
-		census.writeInt(serviceQuality);
-		census.writeInt(gender);
 		census.writeInt(age);
 		census.writeInt(literacy);
-		census.writeInt(activity);
 		census.writeUTF(countyName);
 		census.writeUTF(stateName);
 		census.writeInt(houseId);
@@ -48,22 +39,6 @@ public class Census implements DataSerializable {
 
 	public void setHouseType(Integer houseType) {
 		this.houseType = houseType;
-	}
-
-	public Integer getServiceQuality() {
-		return serviceQuality;
-	}
-
-	public void setServiceQuality(Integer serviceQuality) {
-		this.serviceQuality = serviceQuality;
-	}
-
-	public Integer getGender() {
-		return gender;
-	}
-
-	public void setGender(Integer gender) {
-		this.gender = gender;
 	}
 
 	public Integer getAge() {
@@ -80,14 +55,6 @@ public class Census implements DataSerializable {
 
 	public void setLiteracy(Integer literacy) {
 		this.literacy = literacy;
-	}
-
-	public Integer getActivity() {
-		return activity;
-	}
-
-	public void setActivity(Integer activity) {
-		this.activity = activity;
 	}
 
 	public String getCountyName() {

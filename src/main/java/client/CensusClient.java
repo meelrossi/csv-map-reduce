@@ -1,6 +1,5 @@
 package client;
 
-import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 import com.hazelcast.client.HazelcastClient;
@@ -11,7 +10,6 @@ import com.hazelcast.core.IMap;
 
 import api.model.Census;
 import api.model.CensusQuery;
-import api.utils.ArgsParser;
 
 public class CensusClient {
 	private static final String MAP_NAME = "54080-54265-census";
@@ -49,8 +47,7 @@ public class CensusClient {
 			throw new RuntimeException(e);
 		}
 
-		Map<String, Object> properties = ArgsParser.parseArgs(args);
-		CensusQuery query = CensusQuery.getQuery(Integer.parseInt((String) properties.get("QUERY")));
+		CensusQuery query = CensusQuery.getQuery(Integer.parseInt(System.getProperty("query")));
 		
 		query.run(client, myMap);
 
