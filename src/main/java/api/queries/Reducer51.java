@@ -3,11 +3,13 @@ package api.queries;
 import com.hazelcast.mapreduce.Reducer;
 import com.hazelcast.mapreduce.ReducerFactory;
 
-public class Reducer51 implements ReducerFactory<String, Integer, Integer>{
+import api.model.CountyState;
+
+public class Reducer51 implements ReducerFactory<CountyState, Integer, Integer>{
 
 	private static final long serialVersionUID = 1L;
 
-	public Reducer<Integer, Integer> newReducer(String arg0) {
+	public Reducer<Integer, Integer> newReducer(CountyState state) {
 		return new Reducer<Integer, Integer>() {
 			int sum;
 			

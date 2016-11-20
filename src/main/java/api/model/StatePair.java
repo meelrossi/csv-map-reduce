@@ -7,25 +7,45 @@ import com.hazelcast.nio.ObjectDataOutput;
 import com.hazelcast.nio.serialization.DataSerializable;
 
 public class StatePair implements DataSerializable {
-	
-	private String state1;
-	private String state2;
-	
-	public StatePair(String state1, String state2) {
-		this.state1 = state1;
-		this.state2 = state2;
+
+	private CountyState countyState1;
+	private CountyState countyState2;
+
+	public StatePair(CountyState countyState1, CountyState countyState2) {
+		this.countyState1 = countyState1;
+		this.countyState2 = countyState2;
 	}
 	
+	public StatePair() {
+		super();
+	}
+
 	@Override
 	public void writeData(ObjectDataOutput out) throws IOException {
-		out.writeUTF(state1);
-		out.writeUTF(state2);
+		out.writeObject(countyState1);
+		out.writeObject(countyState2);
 	}
 
 	@Override
 	public void readData(ObjectDataInput in) throws IOException {
-		state1 = in.readUTF();
-		state2 = in.readUTF();
+		countyState1 = in.readObject();
+		countyState2 = in.readObject();
+	}
+
+	public CountyState getCountyState1() {
+		return countyState1;
+	}
+
+	public void setCountyState1(CountyState countyState1) {
+		this.countyState1 = countyState1;
+	}
+
+	public CountyState getCountyState2() {
+		return countyState2;
+	}
+
+	public void setCountyState2(CountyState countyState2) {
+		this.countyState2 = countyState2;
 	}
 
 }

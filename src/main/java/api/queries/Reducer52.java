@@ -6,24 +6,25 @@ import java.util.List;
 import com.hazelcast.mapreduce.Reducer;
 import com.hazelcast.mapreduce.ReducerFactory;
 
+import api.model.CountyState;
 import api.model.StatePair;
 
-public class Reducer52 implements ReducerFactory<Integer, String, List<StatePair>> {
+public class Reducer52 implements ReducerFactory<Integer, CountyState, List<StatePair>> {
 
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	public Reducer<String, List<StatePair>> newReducer(Integer key) {
-		return new Reducer<String, List<StatePair>>() {
-			List<String> states;
+	public Reducer<CountyState, List<StatePair>> newReducer(Integer key) {
+		return new Reducer<CountyState, List<StatePair>>() {
+			List<CountyState> states;
 
 			@Override
 			public void beginReduce() {
-				states = new LinkedList<String>();
+				states = new LinkedList<CountyState>();
 			}
 
 			@Override
-			public void reduce(String value) {
+			public void reduce(CountyState value) {
 				states.add(value);
 			}
 

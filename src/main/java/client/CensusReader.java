@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 
 import org.supercsv.cellprocessor.ParseInt;
+import org.supercsv.cellprocessor.Trim;
 import org.supercsv.cellprocessor.constraint.NotNull;
 import org.supercsv.cellprocessor.ift.CellProcessor;
 import org.supercsv.io.CsvBeanReader;
@@ -34,9 +35,9 @@ public class CensusReader {
 				// Actividad
 				null,
 				// Nombre departamento
-				new NotNull(),
+				new Trim(new NotNull()),
 				// Nombre Provincia
-				new NotNull(),
+				new Trim(new NotNull()),
 				// Hogar id
 				new ParseInt(new NotNull()) };
 	}
@@ -76,7 +77,7 @@ public class CensusReader {
 		if (Integer.parseInt(System.getProperty("query")) == 4) {
 			String prov = System.getProperty("prov");
 			if (prov == null) throw new IllegalArgumentException();
-			return prov.equalsIgnoreCase(census.getStateName().trim());
+			return prov.equalsIgnoreCase(census.getStateName());
 		}
 		return true;
 	}
