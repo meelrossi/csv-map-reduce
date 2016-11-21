@@ -63,7 +63,7 @@
             <discovery-strategies>
             </discovery-strategies>
         </join>
-        <interfaces enabled="true">
+        <interfaces enabled="false">
             <interface>127.0.0.*</interface>
         </interfaces>
         <ssl enabled="false"/>
