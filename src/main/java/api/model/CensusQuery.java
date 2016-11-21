@@ -71,6 +71,7 @@ public enum CensusQuery {
 
 		KeyValueSource<String, Census> source = KeyValueSource.fromMap(myMap);
 		Job<String, Census> job = tracker.newJob(source);
+		long time = System.currentTimeMillis();
 		logger.info("Inicio trabajo map Reduce");
 		try {
 			switch (this) {
@@ -170,7 +171,7 @@ public enum CensusQuery {
 		} catch (ExecutionException e) {
 			e.printStackTrace();
 		}
-		logger.info("Fin trabajo map Reduce");
+		logger.info(String.format("Fin trabajo map Reduce tiempo de ejecucion: %d", System.currentTimeMillis() - time));
 
 	}
 

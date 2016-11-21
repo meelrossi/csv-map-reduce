@@ -29,6 +29,7 @@ public class CensusClient {
 		if (pass == null) {
 			pass = "dev-pass";
 		}
+		
 		System.out.println(String.format("Connecting with cluster %s", name));
 
 		ClientConfig ccfg = new ClientConfig();
@@ -46,9 +47,10 @@ public class CensusClient {
 		IMap<String, Census> myMap = client.getMap(MAP_NAME);
 
 		try {
+			double time = System.currentTimeMillis();
 			logger.info("Inicio de la lectura del archivo");
 			CensusReader.readCensus(myMap);
-			logger.info("Fin de la lectura del archivo");
+			logger.info("Fin de la lectura del archivo " + (System.currentTimeMillis() - time));
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
