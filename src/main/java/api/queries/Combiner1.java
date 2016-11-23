@@ -7,7 +7,6 @@ public class Combiner1 implements CombinerFactory<AgeCategory, Integer, Integer>
 
 	private static final long serialVersionUID = 1L;
 
-	@Override
 	public Combiner<Integer, Integer> newCombiner(AgeCategory key) {
 		return new Combiner<Integer, Integer>() {
 			int sum;

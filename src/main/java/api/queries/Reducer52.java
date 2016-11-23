@@ -13,7 +13,6 @@ public class Reducer52 implements ReducerFactory<Integer, CountyState, List<Stat
 
 	private static final long serialVersionUID = 1L;
 
-	@Override
 	public Reducer<CountyState, List<StatePair>> newReducer(Integer key) {
 		return new Reducer<CountyState, List<StatePair>>() {
 			List<CountyState> states;

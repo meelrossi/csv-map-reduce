@@ -9,7 +9,6 @@ public class Mapper52 implements Mapper<CountyState, Integer, Integer, CountySta
 
 	private static final long serialVersionUID = 1L;
 
-	@Override
 	public void map(CountyState key, Integer value, Context<Integer, CountyState> context) {
 		context.emit(value, key);
 	}

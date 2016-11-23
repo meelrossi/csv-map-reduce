@@ -19,13 +19,13 @@ public class CountyState  implements DataSerializable {
 		super();
 	}
 
-	@Override
+	
 	public void writeData(ObjectDataOutput out) throws IOException {
 		out.writeUTF(countyName);
 		out.writeUTF(stateName);
 	}
 
-	@Override
+	
 	public void readData(ObjectDataInput in) throws IOException {
 		countyName = in.readUTF();
 		stateName = in.readUTF();
