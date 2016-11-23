@@ -18,7 +18,7 @@ import api.model.Census;
 
 public class CensusReader {
 
-	private static final String FILENAME = "./files/dataset-1000.csv";
+	private static final String FILENAME = "./files/dataset-10000.csv";
 
 	private static CellProcessor[] getProcessors() {
 		return new CellProcessor[] {
