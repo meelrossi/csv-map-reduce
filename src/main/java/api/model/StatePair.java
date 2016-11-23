@@ -20,13 +20,13 @@ public class StatePair implements DataSerializable {
 		super();
 	}
 
-	@Override
+	
 	public void writeData(ObjectDataOutput out) throws IOException {
 		out.writeObject(countyState1);
 		out.writeObject(countyState2);
 	}
 
-	@Override
+	
 	public void readData(ObjectDataInput in) throws IOException {
 		countyState1 = in.readObject();
 		countyState2 = in.readObject();
