@@ -82,7 +82,7 @@ public enum CensusQuery {
 				PriorityQueue<Entry<AgeCategory, Integer>> ans1 = future1.get();
 				List<String> lines1 = new LinkedList<String>();
 				int size1 = ans1.size();
-				for (int i= 0; i < size1; i++) {
+				for (int i = 0; i < size1; i++) {
 					Entry<AgeCategory, Integer> entry = ans1.poll();
 					lines1.add(String.format(QUERY_1_FORMAT, entry.getKey(), entry.getValue()));
 				}
@@ -91,8 +91,8 @@ public enum CensusQuery {
 
 			case QUERY_2:
 
-				ICompletableFuture<PriorityQueue<Entry<Integer, Double>>> future2 = job.mapper(new Mapper2()).reducer(new Reducer2())
-						.submit(new Collator2());
+				ICompletableFuture<PriorityQueue<Entry<Integer, Double>>> future2 = job.mapper(new Mapper2())
+						.reducer(new Reducer2()).submit(new Collator2());
 				PriorityQueue<Entry<Integer, Double>> ans2 = future2.get();
 				List<String> lines2 = new LinkedList<String>();
 				int size = ans2.size();
@@ -105,8 +105,8 @@ public enum CensusQuery {
 
 			case QUERY_3:
 
-				ICompletableFuture<PriorityQueue<Entry<String, Double>>> future3 = job.mapper(new Mapper3()).reducer(new Reducer3())
-						.submit(new Collator3());
+				ICompletableFuture<PriorityQueue<Entry<String, Double>>> future3 = job.mapper(new Mapper3())
+						.reducer(new Reducer3()).submit(new Collator3());
 				PriorityQueue<Entry<String, Double>> ans3 = future3.get();
 				List<String> lines3 = new LinkedList<String>();
 				String parN = System.getProperty("n");
@@ -121,8 +121,8 @@ public enum CensusQuery {
 
 			case QUERY_4:
 
-				ICompletableFuture<PriorityQueue<Entry<String, Integer>>> future4 = job.mapper(new Mapper4()).reducer(new Reducer4())
-						.submit(new Collator4());
+				ICompletableFuture<PriorityQueue<Entry<String, Integer>>> future4 = job.mapper(new Mapper4())
+						.reducer(new Reducer4()).submit(new Collator4());
 				PriorityQueue<Entry<String, Integer>> ans4 = future4.get();
 				List<String> lines4 = new LinkedList<String>();
 				int size4 = ans4.size();
