@@ -81,7 +81,9 @@ public enum CensusQuery {
 						.combiner(new Combiner1()).reducer(new Reducer1()).submit(new Collator1());
 				PriorityQueue<Entry<AgeCategory, Integer>> ans1 = future1.get();
 				List<String> lines1 = new LinkedList<String>();
-				for (Entry<AgeCategory, Integer> entry : ans1) {
+				int size1 = ans1.size();
+				for (int i= 0; i < size1; i++) {
+					Entry<AgeCategory, Integer> entry = ans1.poll();
 					lines1.add(String.format(QUERY_1_FORMAT, entry.getKey(), entry.getValue()));
 				}
 				writeFile(lines1);
